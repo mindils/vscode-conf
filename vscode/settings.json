@@ -3,7 +3,7 @@
     // VSCodeVim — базовые настройки (аналог твоего IdeaVim)
     // ==========================================================
     "vim.leader": "<space>",
-    "vim.useSystemClipboard": true,
+    "vim.useSystemClipboard": false,
     "vim.scrolloff": 5,
     "vim.incsearch": true,
     "vim.ignorecase": true,
