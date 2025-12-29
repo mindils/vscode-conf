@@ -1,25 +1,18 @@
 {
-    // ==========================================================
-    // VSCodeVim — базовые настройки (аналог твоего IdeaVim)
-    // ==========================================================
+    // ===== базовое =====
     "vim.leader": "<space>",
     "vim.useSystemClipboard": false,
     "vim.scrolloff": 5,
     "vim.incsearch": true,
     "vim.ignorecase": true,
     "vim.smartcase": true,
-    // EasyMotion (включение)
     "vim.easymotion": true,
-    // Подсветка yank (как vim-highlightedyank)
+    // Подсветка yank (как highlightedyank)
     "vim.highlightedyank.enable": true,
     "vim.highlightedyank.duration": 200,
-    // Номера строк: relative
+    // Номера строк как в Vim
     "editor.lineNumbers": "relative",
-    // Аналог cursor surrounding lines (чтобы было как scrolloff и контекст)
-    "editor.cursorSurroundingLines": 5,
-    // ==========================================================
-    // Vim insert mode: jj -> Esc
-    // ==========================================================
+    // ===== insert: jj -> esc =====
     "vim.insertModeKeyBindingsNonRecursive": [
         {
             "before": [
@@ -31,9 +24,7 @@
             ]
         }
     ],
-    // ==========================================================
-    // Vim normal mode mappings
-    // ==========================================================
+    // ===== normal mode хоткеи =====
     "vim.normalModeKeyBindingsNonRecursive": [
         // Ex mode -> форматирование (Q -> gq)
         {
@@ -45,11 +36,9 @@
                 "q"
             ]
         },
-        // ----------------------------------------------------------
-        // EasyMotion на f (как у тебя в IdeaVim)
-        // В VSCodeVim EasyMotion обычно вызывается <leader><leader>s...
-        // Мы мапаем "f" -> "<leader><leader>s"
-        // ----------------------------------------------------------
+        // --- EASYMOTION на f ---
+        // В VSCodeVim easymotion по умолчанию: <leader><leader> + s ... :contentReference[oaicite:2]{index=2}
+        // Мапаем твоё "f" -> "<leader><leader>s"
         {
             "before": [
                 "f"
@@ -60,11 +49,7 @@
                 "s"
             ]
         },
-        // ----------------------------------------------------------
-        // Explorer / sidebar (аналоги NERDTree)
-        // leader+e: показать/скрыть боковую панель
-        // leader+o: фокус на Explorer
-        // ----------------------------------------------------------
+        // --- NERDTREE аналоги: Explorer/sidebar ---
         {
             "before": [
                 "<leader>",
@@ -83,9 +68,7 @@
                 "workbench.view.explorer"
             ]
         },
-        // ----------------------------------------------------------
-        // Переключение между открытыми файлами (как H/L Next/Prev tab)
-        // ----------------------------------------------------------
+        // --- табы/редакторы как H/L в IdeaVim ---
         {
             "before": [
                 "H"
@@ -102,9 +85,7 @@
                 "workbench.action.nextEditor"
             ]
         },
-        // ----------------------------------------------------------
-        // Навигация между split-группами (Ctrl-h/j/k/l)
-        // ----------------------------------------------------------
+        // --- split-навигация (Ctrl-h/j/k/l) ---
         {
             "before": [
                 "<C-h>"
@@ -137,9 +118,7 @@
                 "workbench.action.focusAboveGroup"
             ]
         },
-        // ----------------------------------------------------------
-        // IDE actions (похожие на твои <Action>(...))
-        // ----------------------------------------------------------
+        // --- IDE actions ---
         {
             "before": [
                 "<leader>",
@@ -149,7 +128,6 @@
                 "workbench.action.closeActiveEditor"
             ]
         },
-        // Терминал (просто фокус, toggle у тебя на Ctrl+\ в keybindings.json)
         {
             "before": [
                 "<leader>",
@@ -160,7 +138,6 @@
                 "workbench.action.terminal.focus"
             ]
         },
-        // Rename
         {
             "before": [
                 "<leader>",
@@ -170,7 +147,6 @@
                 "editor.action.rename"
             ]
         },
-        // Format + Optimize imports
         {
             "before": [
                 "<leader>",
@@ -181,7 +157,7 @@
                 "editor.action.organizeImports"
             ]
         },
-        // Quick fix
+        // quick fix
         {
             "before": [
                 "<leader>",
@@ -191,7 +167,7 @@
                 "editor.action.quickFix"
             ]
         },
-        // Go to definition / references / implementation
+        // gd / gr / gi
         {
             "before": [
                 "g",
@@ -219,7 +195,7 @@
                 "editor.action.goToImplementation"
             ]
         },
-        // Debug / breakpoint (если используешь)
+        // (опционально) брейкпоинты/дебаг
         {
             "before": [
                 "<leader>",
@@ -238,7 +214,7 @@
                 "workbench.action.debug.start"
             ]
         },
-        // Multiple cursors (похоже на vim-multiple-cursors)
+        // multiple cursors похоже на vim-multiple-cursors
         {
             "before": [
                 "<C-n>"
@@ -247,7 +223,6 @@
                 "editor.action.addSelectionToNextFindMatch"
             ]
         },
-        // "Skip occurrence" аналога 1:1 нет, но можно двигать выделение
         {
             "before": [
                 "<C-x>"
@@ -256,7 +231,6 @@
                 "editor.action.moveSelectionToNextFindMatch"
             ]
         },
-        // Undo last cursor/selection change
         {
             "before": [
                 "<C-p>"
@@ -265,5 +239,14 @@
                 "cursorUndo"
             ]
         }
-    ]
+    ],
+    // Редактор
+    "editor.fontFamily": "'JetBrains Mono', Consolas, 'Courier New', monospace",
+    "editor.fontSize": 16,
+    "editor.lineHeight": 22,
+    "editor.fontLigatures": true,
+    // Терминал
+    "terminal.integrated.fontFamily": "'JetBrains Mono', monospace",
+    "terminal.integrated.fontSize": 15,
+    "editor.cursorSurroundingLines": 5
 }
