@@ -1,0 +1,269 @@
+{
+    // ==========================================================
+    // VSCodeVim — базовые настройки (аналог твоего IdeaVim)
+    // ==========================================================
+    "vim.leader": "<space>",
+    "vim.useSystemClipboard": true,
+    "vim.scrolloff": 5,
+    "vim.incsearch": true,
+    "vim.ignorecase": true,
+    "vim.smartcase": true,
+    // EasyMotion (включение)
+    "vim.easymotion": true,
+    // Подсветка yank (как vim-highlightedyank)
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.duration": 200,
+    // Номера строк: relative
+    "editor.lineNumbers": "relative",
+    // Аналог cursor surrounding lines (чтобы было как scrolloff и контекст)
+    "editor.cursorSurroundingLines": 5,
+    // ==========================================================
+    // Vim insert mode: jj -> Esc
+    // ==========================================================
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "j",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    // ==========================================================
+    // Vim normal mode mappings
+    // ==========================================================
+    "vim.normalModeKeyBindingsNonRecursive": [
+        // Ex mode -> форматирование (Q -> gq)
+        {
+            "before": [
+                "Q"
+            ],
+            "after": [
+                "g",
+                "q"
+            ]
+        },
+        // ----------------------------------------------------------
+        // EasyMotion на f (как у тебя в IdeaVim)
+        // В VSCodeVim EasyMotion обычно вызывается <leader><leader>s...
+        // Мы мапаем "f" -> "<leader><leader>s"
+        // ----------------------------------------------------------
+        {
+            "before": [
+                "f"
+            ],
+            "after": [
+                "<leader>",
+                "<leader>",
+                "s"
+            ]
+        },
+        // ----------------------------------------------------------
+        // Explorer / sidebar (аналоги NERDTree)
+        // leader+e: показать/скрыть боковую панель
+        // leader+o: фокус на Explorer
+        // ----------------------------------------------------------
+        {
+            "before": [
+                "<leader>",
+                "e"
+            ],
+            "commands": [
+                "workbench.action.toggleSidebarVisibility"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "o"
+            ],
+            "commands": [
+                "workbench.view.explorer"
+            ]
+        },
+        // ----------------------------------------------------------
+        // Переключение между открытыми файлами (как H/L Next/Prev tab)
+        // ----------------------------------------------------------
+        {
+            "before": [
+                "H"
+            ],
+            "commands": [
+                "workbench.action.previousEditor"
+            ]
+        },
+        {
+            "before": [
+                "L"
+            ],
+            "commands": [
+                "workbench.action.nextEditor"
+            ]
+        },
+        // ----------------------------------------------------------
+        // Навигация между split-группами (Ctrl-h/j/k/l)
+        // ----------------------------------------------------------
+        {
+            "before": [
+                "<C-h>"
+            ],
+            "commands": [
+                "workbench.action.focusLeftGroup"
+            ]
+        },
+        {
+            "before": [
+                "<C-l>"
+            ],
+            "commands": [
+                "workbench.action.focusRightGroup"
+            ]
+        },
+        {
+            "before": [
+                "<C-j>"
+            ],
+            "commands": [
+                "workbench.action.focusBelowGroup"
+            ]
+        },
+        {
+            "before": [
+                "<C-k>"
+            ],
+            "commands": [
+                "workbench.action.focusAboveGroup"
+            ]
+        },
+        // ----------------------------------------------------------
+        // IDE actions (похожие на твои <Action>(...))
+        // ----------------------------------------------------------
+        {
+            "before": [
+                "<leader>",
+                "c"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        },
+        // Терминал (просто фокус, toggle у тебя на Ctrl+\ в keybindings.json)
+        {
+            "before": [
+                "<leader>",
+                "t",
+                "h"
+            ],
+            "commands": [
+                "workbench.action.terminal.focus"
+            ]
+        },
+        // Rename
+        {
+            "before": [
+                "<leader>",
+                "r"
+            ],
+            "commands": [
+                "editor.action.rename"
+            ]
+        },
+        // Format + Optimize imports
+        {
+            "before": [
+                "<leader>",
+                "f"
+            ],
+            "commands": [
+                "editor.action.formatDocument",
+                "editor.action.organizeImports"
+            ]
+        },
+        // Quick fix
+        {
+            "before": [
+                "<leader>",
+                "a"
+            ],
+            "commands": [
+                "editor.action.quickFix"
+            ]
+        },
+        // Go to definition / references / implementation
+        {
+            "before": [
+                "g",
+                "d"
+            ],
+            "commands": [
+                "editor.action.revealDefinition"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "r"
+            ],
+            "commands": [
+                "editor.action.referenceSearch.trigger"
+            ]
+        },
+        {
+            "before": [
+                "g",
+                "i"
+            ],
+            "commands": [
+                "editor.action.goToImplementation"
+            ]
+        },
+        // Debug / breakpoint (если используешь)
+        {
+            "before": [
+                "<leader>",
+                "b"
+            ],
+            "commands": [
+                "editor.debug.action.toggleBreakpoint"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d"
+            ],
+            "commands": [
+                "workbench.action.debug.start"
+            ]
+        },
+        // Multiple cursors (похоже на vim-multiple-cursors)
+        {
+            "before": [
+                "<C-n>"
+            ],
+            "commands": [
+                "editor.action.addSelectionToNextFindMatch"
+            ]
+        },
+        // "Skip occurrence" аналога 1:1 нет, но можно двигать выделение
+        {
+            "before": [
+                "<C-x>"
+            ],
+            "commands": [
+                "editor.action.moveSelectionToNextFindMatch"
+            ]
+        },
+        // Undo last cursor/selection change
+        {
+            "before": [
+                "<C-p>"
+            ],
+            "commands": [
+                "cursorUndo"
+            ]
+        }
+    ]
+}

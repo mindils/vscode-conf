@@ -1,0 +1,59 @@
+// VS Code — user keybindings
+// Цель: поведение как NERDTree + удобный фокус/терминал.
+[
+  // ==========================================================
+  // EXPLORER (дерево файлов): Esc -> вернуть фокус в редактор
+  // ==========================================================
+  {
+    "key": "escape",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "sideBarFocus && activeViewlet == 'workbench.view.explorer' && !inputFocus"
+  },
+  // ==========================================================
+  // EXPLORER: NERDTree-like "o"
+  //  - на папке: раскрыть/свернуть
+  //  - на файле: открыть И перейти фокусом в редактор
+  // ==========================================================
+  {
+    "key": "o",
+    "command": "list.toggleExpand",
+    "when": "sideBarFocus && activeViewlet == 'workbench.view.explorer' && explorerResourceIsFolder && !inputFocus"
+  },
+  {
+    "key": "o",
+    "command": "list.select",
+    "when": "sideBarFocus && activeViewlet == 'workbench.view.explorer' && !explorerResourceIsFolder && !inputFocus"
+  },
+  // ==========================================================
+  // TERMINAL toggle на Ctrl+\
+  // Требование:
+  //  - если фокус НЕ в терминале: открыть/показать терминал и сфокусировать
+  //  - если фокус В терминале: закрыть терминал (панель)
+  //
+  // Решение: toggleTerminal + настройка в settings.json (commandsToSkipShell)
+  // ==========================================================
+  // Убираем дефолт VS Code: Ctrl+\ = split editor
+  {
+    "key": "ctrl+\\",
+    "command": "-workbench.action.splitEditor"
+  },
+  // Toggle integrated terminal
+  {
+    "key": "ctrl+\\",
+    "command": "workbench.action.terminal.toggleTerminal"
+  },
+  // TERMINAL: Esc -> вернуть фокус в редактор
+  {
+    "key": "escape",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
+  // ==========================================================
+  // EXPLORER: "n" -> создать новый файл (как в NERDTree)
+  // ==========================================================
+  {
+    "key": "n",
+    "command": "explorer.newFile",
+    "when": "sideBarFocus && activeViewlet == 'workbench.view.explorer' && !inputFocus"
+  }
+]
